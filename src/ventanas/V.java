@@ -79,7 +79,7 @@ public class V extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        aux.
+        
         aux.setVisible(true);
     }   
     /**

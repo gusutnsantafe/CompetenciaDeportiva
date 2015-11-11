@@ -32,8 +32,7 @@ public class bienvenido extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(320, 420, 110, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jorge\\Documents\\NetBeansProjects\\CompetenciaDeportiva\\src\\modelo\\10405413_1660051937563873_1441086638768086778_n.jpg")); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competenciadeportiva/img.jpg.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(0, 0, 710, 540);
 

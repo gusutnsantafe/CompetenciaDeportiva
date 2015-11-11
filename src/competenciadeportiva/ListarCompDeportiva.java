@@ -33,6 +33,11 @@ public class ListarCompDeportiva extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Filtros de Competencia"), "Filtros de Competencia"));
 
         jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nombre de la Competencia");
 
@@ -219,6 +224,10 @@ public class ListarCompDeportiva extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_SALIRActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
