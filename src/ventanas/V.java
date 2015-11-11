@@ -5,12 +5,16 @@
  */
 package ventanas;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Martin
  */
 public class V extends javax.swing.JFrame {
-
+    
+    Auxiliar aux;
+    
     /**
      * Creates new form VentanaPrincipal
      */
@@ -31,19 +35,21 @@ public class V extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(400, 300));
 
-        jButton1.setText("jButton1");
-
         jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         
-        ListarCD aux=new ListarCD();
-        
+        aux=new Auxiliar();
+        aux.setVisible(false);
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -72,6 +78,10 @@ public class V extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        aux.
+        aux.setVisible(true);
+    }   
     /**
      * @param args the command line arguments
      */
@@ -108,7 +118,6 @@ public class V extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration                   
 }
