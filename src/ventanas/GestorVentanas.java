@@ -19,6 +19,9 @@ public class GestorVentanas {
         principal=new VentanaPrincipal();
         principal.add(new JButton());
         principal.setVisible(true);
-        
+        /*Prueba2 aux=new Prueba2();
+        principal.getContentPane().add(aux);
+        aux.setVisible(true);
+        principal.repaint();*/
     }
 }
