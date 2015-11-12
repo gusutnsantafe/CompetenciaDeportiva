@@ -7,8 +7,7 @@ public class Disponibilidad {
 
    private int id;
    private String cantidad;
-   
-   ArrayList<LugarRealizacion> lg;
+   private LugarRealizacion lg;
 
     public void setId(int id) {
         this.id = id;
@@ -18,7 +17,7 @@ public class Disponibilidad {
         this.cantidad = cantidad;
     }
 
-    public void setLg(ArrayList<LugarRealizacion> lg) {
+    public void setLg(LugarRealizacion lg) {
         this.lg = lg;
     }
 
@@ -30,11 +29,11 @@ public class Disponibilidad {
         return cantidad;
     }
 
-    public ArrayList<LugarRealizacion> getLg() {
+    public LugarRealizacion getLg() {
         return lg;
     }
 
-    public Disponibilidad(int id, String cantidad, ArrayList<LugarRealizacion> lg) {
+    public Disponibilidad(int id, String cantidad, LugarRealizacion lg) {
         this.id = id;
         this.cantidad = cantidad;
         this.lg = lg;
