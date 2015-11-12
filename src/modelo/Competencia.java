@@ -16,11 +16,13 @@ public class Competencia {
     private int empatePermitido;
     private String puntosPorPermitido;
     
-    private String estado;
-    private String formaPuntuacion;
-    private String modalidad;
-    private String fixture;
-    private String deporte;
+    private Estado estado;
+    private FormaPuntuacion formaPuntuacion;
+    private Modalidad modalidad;
+    private Fixture fixture;
+    private Deporte deporte;
+    private ArrayList<Disponibilidad> disponibilidad;
+    private ArrayList<TablaPosicionesParticipante> tablaPosicionesParticipante;
 
     public void setId(int id) {
         this.id = id;
@@ -58,26 +60,34 @@ public class Competencia {
         this.puntosPorPermitido = puntosPorPermitido;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
 
-    public void setFormaPuntuacion(String formaPuntuacion) {
+    public void setFormaPuntuacion(FormaPuntuacion formaPuntuacion) {
         this.formaPuntuacion = formaPuntuacion;
     }
 
-    public void setModalidad(String modalidad) {
+    public void setModalidad(Modalidad modalidad) {
         this.modalidad = modalidad;
     }
 
-    public void setFixture(String fixture) {
+    public void setFixture(Fixture fixture) {
         this.fixture = fixture;
     }
 
-    public void setDeporte(String deporte) {
+    public void setDeporte(Deporte deporte) {
         this.deporte = deporte;
     }
 
+    public void addDisponibilidad(Disponibilidad unaDisponibilidad) {
+        disponibilidad.add(unaDisponibilidad);
+    } 
+    
+    public void addTablaPosicionesParticipante(TablaPosicionesParticipante unaTabla) {
+        tablaPosicionesParticipante.add(unaTabla);
+    }    
+    
     public int getId() {
         return id;
     }
@@ -114,27 +124,34 @@ public class Competencia {
         return puntosPorPermitido;
     }
 
-    public String getEstado() {
+    public Estado getEstado() {
         return estado;
     }
 
-    public String getFormaPuntuacion() {
+    public FormaPuntuacion getFormaPuntuacion() {
         return formaPuntuacion;
     }
 
-    public String getModalidad() {
+    public Modalidad getModalidad() {
         return modalidad;
     }
 
-    public String getFixture() {
+    public Fixture getFixture() {
         return fixture;
     }
 
-    public String getDeporte() {
+    public Deporte getDeporte() {
         return deporte;
     }
 
-    public Competencia(int id, String nombre, String reglamento, int cantidadMaximaDeSets, String tantosPorAusenciaDeRival, int puntosPorPresentacion, int puntosPorVictoria, int empatePermitido, String puntosPorPermitido, String estado, String formaPuntuacion, String modalidad, String fixture, String deporte) {
+    public ArrayList<Disponibilidad> getDisponibilidad() {
+        return disponibilidad;
+    } 
+    
+    public ArrayList<TablaPosicionesParticipante> getTablaPosicionesParticipante() {
+        return tablaPosicionesParticipante;
+    }     
+    public Competencia(int id, String nombre, String reglamento, int cantidadMaximaDeSets, String tantosPorAusenciaDeRival, int puntosPorPresentacion, int puntosPorVictoria, int empatePermitido, String puntosPorPermitido, Estado estado, FormaPuntuacion formaPuntuacion, Modalidad modalidad, Fixture fixture, Deporte deporte) {
         this.id = id;
         this.nombre = nombre;
         this.reglamento = reglamento;
@@ -144,11 +161,14 @@ public class Competencia {
         this.puntosPorVictoria = puntosPorVictoria;
         this.empatePermitido = empatePermitido;
         this.puntosPorPermitido = puntosPorPermitido;
+        
         this.estado = estado;
         this.formaPuntuacion = formaPuntuacion;
         this.modalidad = modalidad;
         this.fixture = fixture;
         this.deporte = deporte;
+        this.disponibilidad = new ArrayList<>();
+        this.tablaPosicionesParticipante = new ArrayList<>();
     }
     
 }
