@@ -6,26 +6,49 @@
 package ventanas;
 
 import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Martin
  */
 public class V extends javax.swing.JFrame {
-    
-    Auxiliar aux;
+   
+    // Forma de SINGLETON
+    private static V SELF = new V();
+    //private V() {}
+    public static V get(){
+        return SELF;
+    }
     
     /**
      * Creates new form VentanaPrincipal
      */
-    public V() {
+    private V() {
         initComponents();
     }
     
+    private JPanel aux;
+    
     public void limpiar(){
-        
+        //SELF.removeAll(); NOOOO, elimina nose que masss
+        SELF.remove(aux);
     }
-
+    
+    public static void pasar(){
+        SELF.limpiar();
+        Prueba2 pr=new Prueba2();
+        SELF.add(pr);
+        
+        //SELF.invalidate();
+        SELF.revalidate();
+        SELF.repaint();
+        //SELF.pack();
+        /*Cliente = new Cliente();
+        Panel.add(Cliente, BorderLayout.CENTER);
+        this.pack();*/
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -69,7 +92,7 @@ public class V extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new V().setVisible(true);
+                new V().get().setVisible(true);
             }
         });
     }
