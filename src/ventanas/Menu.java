@@ -9,12 +9,12 @@ package ventanas;
  *
  * @author Martin
  */
-public class MenuPrincipal extends javax.swing.JPanel {
+public class Menu extends javax.swing.JPanel {
 
     /**
      * Creates new form MenuPrincipal
      */
-    public MenuPrincipal() {
+    public Menu() {
         initComponents();
     }
 
@@ -150,7 +150,7 @@ public class MenuPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        V.get().pasar();
+        V.get().listarCD();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

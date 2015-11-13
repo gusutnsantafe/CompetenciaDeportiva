@@ -32,31 +32,28 @@ public class V extends javax.swing.JFrame {
     
     public void limpiar(){
         //SELF.removeAll(); NOOOO, elimina nose que masss
-        SELF.remove(aux);
+        remove(aux);
     }
     
-    public void pasar(){
-        SELF.limpiar();
-        Prueba2 pr=new Prueba2();
-        SELF.add(pr);
-        
+    public void listarCD(){
+        limpiar();
+        aux=new Auxiliar();
+        add(aux);
         //SELF.invalidate(); NO
-        SELF.revalidate();
-        SELF.repaint();
+        revalidate();
+        repaint();
         //SELF.pack(); NO
-        
-        /*Cliente = new Cliente();
+        /*
         Panel.add(Cliente, BorderLayout.CENTER);
         this.pack();*/
     }
     
     public void menu(){
-        //SELF.limpiar();
-        aux = new MenuPrincipal();
-        //SELF.add(aux);
-        //SELF.invalidate(); NO
-        SELF.revalidate();
-        SELF.repaint();
+        limpiar();
+        aux = new Menu();
+        add(aux);
+        revalidate();
+        repaint();
     }
     /**
      * This method is called from within the constructor to initialize the form.
