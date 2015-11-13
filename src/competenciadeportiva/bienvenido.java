@@ -34,7 +34,7 @@ public class bienvenido extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/competenciadeportiva/img.jpg.jpg"))); // NOI18N
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 710, 540);
+        jLabel2.setBounds(0, 0, 800, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
