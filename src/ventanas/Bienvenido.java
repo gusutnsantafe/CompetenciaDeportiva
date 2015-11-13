@@ -27,11 +27,8 @@ public class Bienvenido extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-
-        jLabel1.setText("jLabel1");
 
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -46,7 +43,7 @@ public class Bienvenido extends javax.swing.JPanel {
         add(jButton1);
         jButton1.setBounds(360, 460, 110, 40);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/primera pantalla+background sin botones_1.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_bienvenido.jpg"))); // NOI18N
         add(jLabel2);
         jLabel2.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
@@ -58,7 +55,6 @@ public class Bienvenido extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
