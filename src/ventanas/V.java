@@ -35,20 +35,29 @@ public class V extends javax.swing.JFrame {
         SELF.remove(aux);
     }
     
-    public static void pasar(){
+    public void pasar(){
         SELF.limpiar();
         Prueba2 pr=new Prueba2();
         SELF.add(pr);
         
-        //SELF.invalidate();
+        //SELF.invalidate(); NO
         SELF.revalidate();
         SELF.repaint();
-        //SELF.pack();
+        //SELF.pack(); NO
+        
         /*Cliente = new Cliente();
         Panel.add(Cliente, BorderLayout.CENTER);
         this.pack();*/
     }
     
+    public void menu(){
+        //SELF.limpiar();
+        aux = new MenuPrincipal();
+        //SELF.add(aux);
+        //SELF.invalidate(); NO
+        SELF.revalidate();
+        SELF.repaint();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,10 +70,9 @@ public class V extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
-        
         setLocationRelativeTo(null);
         
-        aux=new Auxiliar();
+        aux=new Bienvenido();
         aux.setVisible(true);
         add(aux);
         /*javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
