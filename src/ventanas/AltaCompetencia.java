@@ -50,11 +50,15 @@ public class AltaCompetencia extends javax.swing.JPanel {
         ATRAS = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
+        setLayout(null);
 
         jLabel2.setText("NOMBRE DE COMPETENCIA");
+        add(jLabel2);
+        jLabel2.setBounds(40, 80, 180, 14);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Modalidad de Competencia", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,8 +66,12 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 jComboBox1ActionPerformed(evt);
             }
         });
+        add(jComboBox1);
+        jComboBox1.setBounds(500, 150, 190, 20);
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Forma de Puntuacion", "Item 2", "Item 3", "Item 4" }));
+        add(jComboBox2);
+        jComboBox2.setBounds(500, 180, 190, 20);
 
         DeporteAsociado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Futbol", "Basquet", "Voley" }));
         DeporteAsociado.addActionListener(new java.awt.event.ActionListener() {
@@ -71,10 +79,21 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 DeporteAsociadoActionPerformed(evt);
             }
         });
+        add(DeporteAsociado);
+        DeporteAsociado.setBounds(50, 130, 138, 20);
 
-        jCheckBox1.setText("Cant de sets/Tantos por no presentarse");
+        jCheckBox1.setText("Cant. de sets/Tantos por no presentarse");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+        add(jCheckBox1);
+        jCheckBox1.setBounds(500, 220, 270, 23);
 
         jCheckBox2.setText("Puntos por partidos ganados");
+        add(jCheckBox2);
+        jCheckBox2.setBounds(500, 250, 260, 23);
 
         jCheckBox3.setText("Puntos por empate");
         jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -82,28 +101,55 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 jCheckBox3ActionPerformed(evt);
             }
         });
+        add(jCheckBox3);
+        jCheckBox3.setBounds(500, 280, 250, 23);
 
         jCheckBox4.setText("Puntos por presentarse");
+        add(jCheckBox4);
+        jCheckBox4.setBounds(500, 310, 240, 23);
 
         jCheckBox5.setText("Permite Empate?");
+        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox5ActionPerformed(evt);
+            }
+        });
+        add(jCheckBox5);
+        jCheckBox5.setBounds(500, 340, 240, 23);
 
         nombreComp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreCompActionPerformed(evt);
             }
         });
+        add(nombreComp);
+        nombreComp.setBounds(50, 100, 220, 20);
 
         Reglamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Reglamento.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Reglamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Reglamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReglamentoActionPerformed(evt);
             }
         });
+        add(Reglamento);
+        Reglamento.setBounds(50, 380, 676, 120);
 
         jLabel3.setText("Lugar:");
+        add(jLabel3);
+        jLabel3.setBounds(50, 160, 50, 14);
 
         jLabel4.setText("Cant:");
+        add(jLabel4);
+        jLabel4.setBounds(210, 160, 30, 14);
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        add(jTextField3);
+        jTextField3.setBounds(250, 180, 41, 20);
 
         jButton1.setText("LISTAR PARTICPANTE DE COMPETENCIA");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +157,8 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1);
+        jButton1.setBounds(305, 508, 231, 23);
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +166,8 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 jComboBox3ActionPerformed(evt);
             }
         });
+        add(jComboBox3);
+        jComboBox3.setBounds(90, 180, 102, 20);
 
         jButton2.setText("+");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +175,8 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2);
+        jButton2.setBounds(300, 180, 40, 23);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -134,7 +186,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Lugar", "Cant ocupada", ""
+                "Lugar", "Cant. ocupada", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -147,12 +199,17 @@ public class AltaCompetencia extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(50, 230, 289, 110);
+
         ACEPTAR.setText("DAR DE ALTA");
         ACEPTAR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ACEPTARActionPerformed(evt);
             }
         });
+        add(ACEPTAR);
+        ACEPTAR.setBounds(554, 508, 114, 23);
 
         ATRAS.setText("ATRAS");
         ATRAS.addActionListener(new java.awt.event.ActionListener() {
@@ -160,110 +217,21 @@ public class AltaCompetencia extends javax.swing.JPanel {
                 ATRASActionPerformed(evt);
             }
         });
+        add(ATRAS);
+        ATRAS.setBounds(69, 508, 90, 23);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Dar de Alta Competencia Deportiva");
+        add(jLabel1);
+        jLabel1.setBounds(220, 10, 350, 50);
 
         jLabel5.setText("Reglamento (opcional):");
+        add(jLabel5);
+        jLabel5.setBounds(50, 360, 150, 14);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(Reglamento, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nombreComp, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(DeporteAsociado, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(234, 234, 234)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(ATRAS, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(146, 146, 146)
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(ACEPTAR, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox3, 0, 102, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(14, 14, 14)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(165, 165, 165)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(29, 29, 29))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nombreComp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(DeporteAsociado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox5)))
-                .addGap(25, 25, 25)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Reglamento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ATRAS)
-                    .addComponent(ACEPTAR)
-                    .addComponent(jButton1))
-                .addGap(0, 69, Short.MAX_VALUE))
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_general.jpg"))); // NOI18N
+        add(jLabel6);
+        jLabel6.setBounds(0, 0, 800, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -306,6 +274,18 @@ public class AltaCompetencia extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ReglamentoActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox5ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ACEPTAR;
@@ -327,6 +307,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField3;
