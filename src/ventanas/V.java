@@ -35,19 +35,6 @@ public class V extends javax.swing.JFrame {
         remove(aux);
     }
     
-    public void listarCD(){
-        limpiar();
-        aux=new Auxiliar();
-        add(aux);
-        //SELF.invalidate(); NO
-        revalidate();
-        repaint();
-        //SELF.pack(); NO
-        /*
-        Panel.add(Cliente, BorderLayout.CENTER);
-        this.pack();*/
-    }
-    
     public void menu(){
         limpiar();
         aux = new Menu();
@@ -55,6 +42,23 @@ public class V extends javax.swing.JFrame {
         revalidate();
         repaint();
     }
+    
+    public void listarCD(){
+        limpiar();
+        aux=new Auxiliar();
+        add(aux);
+        revalidate();
+        repaint();
+    }
+    
+    public void altaCompetencia(){
+        limpiar();
+        aux = new AltaCompetencia();
+        add(aux);
+        revalidate();
+        repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
