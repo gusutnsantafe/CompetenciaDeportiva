@@ -5,6 +5,8 @@
  */
 package ventanas;
 
+import java.util.Vector;
+
 /**
  *
  * @author Martin
@@ -17,7 +19,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
     public AltaCompetencia() {
         initComponents();
     }
-
+    private Vector< Vector<Object> > tabla;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,13 +160,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Lugar", "Cant. ocupada", ""
@@ -469,8 +465,16 @@ public class AltaCompetencia extends javax.swing.JPanel {
         }
     }
     
+    private Vector< Vector<Object> > tablaa(){
+        return tabla;
+    }
+    
     private void agregarATabla(String lugar, int cantidad){
-        
+        Vector<Object> auxLocal= new Vector<>();
+        auxLocal.add(lugar);
+        auxLocal.add(cantidad);
+        auxLocal.add("BOTON");
+        tabla.add(auxLocal);
     }
     
 }
