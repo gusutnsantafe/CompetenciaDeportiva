@@ -19,6 +19,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
     public AltaCompetencia() {
         initComponents();
     }
+    
     private Vector< Vector<Object> > tabla;
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,6 +59,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
+        jPanel1 = new TablaDisponibilidad();
         jLabel6 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -179,7 +181,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(50, 230, 289, 110);
+        jScrollPane1.setBounds(50, 230, 289, 40);
 
         ACEPTAR.setText("DAR DE ALTA");
         ACEPTAR.addActionListener(new java.awt.event.ActionListener() {
@@ -206,7 +208,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
 
         jLabel5.setText("Reglamento (opcional):");
         add(jLabel5);
-        jLabel5.setBounds(50, 360, 150, 14);
+        jLabel5.setBounds(370, 360, 150, 14);
 
         jLabel8.setText("Puntos por empate:");
         add(jLabel8);
@@ -269,7 +271,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jTextArea1);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(50, 380, 660, 96);
+        jScrollPane2.setBounds(370, 380, 340, 96);
 
         jButton3.setText("+");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -279,6 +281,8 @@ public class AltaCompetencia extends javax.swing.JPanel {
         });
         add(jButton3);
         jButton3.setBounds(300, 180, 50, 23);
+        add(jPanel1);
+        jPanel1.setBounds(50, 230, 290, 240);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_general.jpg"))); // NOI18N
         add(jLabel6);
@@ -389,6 +393,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
