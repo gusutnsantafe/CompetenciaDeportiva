@@ -34,13 +34,10 @@ public class AltaCompetencia extends javax.swing.JPanel {
         DeporteAsociado = new javax.swing.JComboBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         nombreComp = new javax.swing.JTextField();
-        Reglamento = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         ACEPTAR = new javax.swing.JButton();
@@ -55,6 +52,10 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -63,7 +64,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
 
         jLabel7.setText("Puntos por presentarse:");
         add(jLabel7);
-        jLabel7.setBounds(500, 280, 130, 14);
+        jLabel7.setBounds(500, 280, 160, 14);
 
         jLabel2.setText("NOMBRE DE COMPETENCIA");
         add(jLabel2);
@@ -108,13 +109,18 @@ public class AltaCompetencia extends javax.swing.JPanel {
         add(DeporteAsociado);
         DeporteAsociado.setBounds(50, 130, 138, 20);
 
+        jCheckBox5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jCheckBox5StateChanged(evt);
+            }
+        });
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox5ActionPerformed(evt);
             }
         });
         add(jCheckBox5);
-        jCheckBox5.setBounds(650, 310, 70, 20);
+        jCheckBox5.setBounds(680, 310, 20, 20);
 
         nombreComp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,16 +130,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
         add(nombreComp);
         nombreComp.setBounds(50, 100, 220, 20);
 
-        Reglamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        Reglamento.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Reglamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ReglamentoActionPerformed(evt);
-            }
-        });
-        add(Reglamento);
-        Reglamento.setBounds(50, 380, 676, 120);
-
         jLabel3.setText("Lugar:");
         add(jLabel3);
         jLabel3.setBounds(50, 160, 50, 14);
@@ -141,14 +137,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jLabel4.setText("Cant:");
         add(jLabel4);
         jLabel4.setBounds(210, 160, 30, 14);
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        add(jTextField3);
-        jTextField3.setBounds(250, 180, 41, 20);
 
         jButton1.setText("LISTAR PARTICPANTE DE COMPETENCIA");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -168,18 +156,12 @@ public class AltaCompetencia extends javax.swing.JPanel {
         add(jComboBox3);
         jComboBox3.setBounds(90, 180, 102, 20);
 
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2);
-        jButton2.setBounds(300, 180, 40, 23);
-
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, ""},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null}
@@ -189,13 +171,15 @@ public class AltaCompetencia extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, true
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.getTableHeader().setResizingAllowed(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
@@ -230,11 +214,11 @@ public class AltaCompetencia extends javax.swing.JPanel {
 
         jLabel8.setText("Puntos por empate:");
         add(jLabel8);
-        jLabel8.setBounds(500, 340, 100, 14);
+        jLabel8.setBounds(500, 340, 150, 14);
 
         jLabel9.setText("Puntos por partidos ganados:");
         add(jLabel9);
-        jLabel9.setBounds(500, 250, 150, 14);
+        jLabel9.setBounds(500, 250, 160, 14);
 
         jLabel10.setText("Permite empate?");
         add(jLabel10);
@@ -247,6 +231,12 @@ public class AltaCompetencia extends javax.swing.JPanel {
         });
         add(jTextField1);
         jTextField1.setBounds(670, 220, 40, 20);
+
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
         add(jTextField4);
         jTextField4.setBounds(670, 340, 40, 20);
 
@@ -258,9 +248,9 @@ public class AltaCompetencia extends javax.swing.JPanel {
         add(jTextField2);
         jTextField2.setBounds(670, 280, 40, 20);
 
-        jLabel11.setText("Cant. de sets/Tantos por no presentarse");
+        jLabel11.setText("Tantos por no presentarse");
         add(jLabel11);
-        jLabel11.setBounds(500, 220, 120, 14);
+        jLabel11.setBounds(500, 220, 160, 14);
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -269,6 +259,30 @@ public class AltaCompetencia extends javax.swing.JPanel {
         });
         add(jTextField5);
         jTextField5.setBounds(670, 250, 40, 20);
+
+        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField1ActionPerformed(evt);
+            }
+        });
+        add(jFormattedTextField1);
+        jFormattedTextField1.setBounds(240, 180, 40, 20);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        add(jScrollPane2);
+        jScrollPane2.setBounds(50, 380, 660, 96);
+
+        jButton3.setText("+");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3);
+        jButton3.setBounds(300, 180, 50, 23);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_general.jpg"))); // NOI18N
         add(jLabel6);
@@ -295,10 +309,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void ACEPTARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ACEPTARActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ACEPTARActionPerformed
@@ -306,14 +316,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private void ATRASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ATRASActionPerformed
         V.get().menu();
     }//GEN-LAST:event_ATRASActionPerformed
-
-    private void ReglamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReglamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReglamentoActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
         // TODO add your handling code here:
@@ -342,18 +344,44 @@ public class AltaCompetencia extends javax.swing.JPanel {
         else formaPResultadoFinal();
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
+    private void jCheckBox5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox5StateChanged
+        if(jCheckBox5.isSelected()){
+            jLabel8.setVisible(true);
+            jTextField4.setVisible(true);
+        }
+        else {
+            jLabel8.setVisible(false);
+            jTextField4.setVisible(false);
+        }
+    }//GEN-LAST:event_jCheckBox5StateChanged
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int a= Integer.parseInt(jFormattedTextField1.getText());
+        if(a>0){
+            agregarATabla((String)jComboBox3.getSelectedItem(),a);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ACEPTAR;
     private javax.swing.JButton ATRAS;
     private javax.swing.JComboBox DeporteAsociado;
-    private javax.swing.JTextField Reglamento;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -366,10 +394,11 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField nombreComp;
@@ -378,18 +407,21 @@ public class AltaCompetencia extends javax.swing.JPanel {
     
     //(Des)habilitacion de botones dependiendo de los comboBox
     
+    //Habilitacion de campos para la modalidad de liga
     private void modalidadLiga(){
         
-        jTextField4.setVisible(true);
+        //jTextField4.setVisible(true);
         jTextField5.setVisible(true);
         jTextField2.setVisible(true);
         jCheckBox5.setVisible(true);
         jLabel7.setVisible(true);
-        jLabel8.setVisible(true);
+        //jLabel8.setVisible(true);
         jLabel9.setVisible(true);
         jLabel10.setVisible(true);
+        verEmpate();
     }
     
+    //Habilitacion de campos para modalidad de eliminatorias
     private void modalidadEliminatoria(){
         
         jTextField4.setVisible(false);
@@ -404,20 +436,41 @@ public class AltaCompetencia extends javax.swing.JPanel {
         // modificar jlabel 11
     }
     
+    //Habilitacion de campos para forma de puntuacion, puntuacion
     private void formaPPuntuacion(){
         jLabel11.setVisible(true);
         jTextField1.setVisible(true);
         jLabel11.setText("Tantos por no presentarse");
     }
+    //Habilitacion de campos para forma de puntuacion, sets
     private void formaPSets(){
         jLabel11.setVisible(true);
         jTextField1.setVisible(true);
         jLabel11.setText("Cant. max. de sets");
     }
+    //Habilitacion de campos para forma de puntuacion, Resultado final
     private void formaPResultadoFinal(){
         jLabel11.setVisible(false);
         jTextField1.setVisible(false);
     }
     
+    //Verificacion del campo para ingresar tantos por empate
+    private void verEmpate(){
+        verCheckBoxEmpate();
+    }
+    private void verCheckBoxEmpate(){
+        if(jCheckBox5.isSelected()){
+            jLabel8.setVisible(true);
+            jTextField4.setVisible(true);
+        }
+        else {
+            jLabel8.setVisible(false);
+            jTextField4.setVisible(false);
+        }
+    }
+    
+    private void agregarATabla(String lugar, int cantidad){
+        
+    }
     
 }
