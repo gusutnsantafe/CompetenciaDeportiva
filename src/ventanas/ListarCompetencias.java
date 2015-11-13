@@ -9,12 +9,12 @@ package ventanas;
  *
  * @author Martin
  */
-public class Auxiliar extends javax.swing.JPanel {
+public class ListarCompetencias extends javax.swing.JPanel {
 
     /**
      * Creates new form Auxiliar
      */
-    public Auxiliar() {
+    public ListarCompetencias() {
         initComponents();
     }
 

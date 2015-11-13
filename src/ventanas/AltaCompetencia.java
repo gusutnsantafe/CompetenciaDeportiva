@@ -27,14 +27,11 @@ public class AltaCompetencia extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
         DeporteAsociado = new javax.swing.JComboBox();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
         jCheckBox5 = new javax.swing.JCheckBox();
         nombreComp = new javax.swing.JTextField();
         Reglamento = new javax.swing.JTextField();
@@ -50,28 +47,57 @@ public class AltaCompetencia extends javax.swing.JPanel {
         ATRAS = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
 
+        jLabel7.setText("Puntos por presentarse:");
+        add(jLabel7);
+        jLabel7.setBounds(500, 280, 130, 14);
+
         jLabel2.setText("NOMBRE DE COMPETENCIA");
         add(jLabel2);
         jLabel2.setBounds(40, 80, 180, 14);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Modalidad de Competencia", "Item 2", "Item 3", "Item 4" }));
+        String[] cadena2= new String[] { "Puntuacion", "Sets", "Resultado Final" };
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(cadena2));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
         add(jComboBox1);
-        jComboBox1.setBounds(500, 150, 190, 20);
+        jComboBox1.setBounds(500, 130, 190, 20);
+        if((String)jComboBox1.getSelectedItem()=="Puntuacion"){formaPPuntuacion();}
+        else if((String)jComboBox1.getSelectedItem()=="Sets"){formaPSets();}
+        else formaPResultadoFinal();
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Forma de Puntuacion", "Item 2", "Item 3", "Item 4" }));
+        String[] cadena= new String[] { "Liga", "Eliminacion Simple", "Eliminacion Doble" };
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(cadena));
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
         add(jComboBox2);
-        jComboBox2.setBounds(500, 180, 190, 20);
+        jComboBox2.setBounds(500, 170, 190, 20);
+        if((String)jComboBox2.getSelectedItem()=="Liga"){modalidadLiga();}
+        else modalidadEliminatoria();
 
         DeporteAsociado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Futbol", "Basquet", "Voley" }));
         DeporteAsociado.addActionListener(new java.awt.event.ActionListener() {
@@ -82,40 +108,13 @@ public class AltaCompetencia extends javax.swing.JPanel {
         add(DeporteAsociado);
         DeporteAsociado.setBounds(50, 130, 138, 20);
 
-        jCheckBox1.setText("Cant. de sets/Tantos por no presentarse");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        add(jCheckBox1);
-        jCheckBox1.setBounds(500, 220, 270, 23);
-
-        jCheckBox2.setText("Puntos por partidos ganados");
-        add(jCheckBox2);
-        jCheckBox2.setBounds(500, 250, 260, 23);
-
-        jCheckBox3.setText("Puntos por empate");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
-            }
-        });
-        add(jCheckBox3);
-        jCheckBox3.setBounds(500, 280, 250, 23);
-
-        jCheckBox4.setText("Puntos por presentarse");
-        add(jCheckBox4);
-        jCheckBox4.setBounds(500, 310, 240, 23);
-
-        jCheckBox5.setText("Permite Empate?");
         jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBox5ActionPerformed(evt);
             }
         });
         add(jCheckBox5);
-        jCheckBox5.setBounds(500, 340, 240, 23);
+        jCheckBox5.setBounds(650, 310, 70, 20);
 
         nombreComp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,6 +228,48 @@ public class AltaCompetencia extends javax.swing.JPanel {
         add(jLabel5);
         jLabel5.setBounds(50, 360, 150, 14);
 
+        jLabel8.setText("Puntos por empate:");
+        add(jLabel8);
+        jLabel8.setBounds(500, 340, 100, 14);
+
+        jLabel9.setText("Puntos por partidos ganados:");
+        add(jLabel9);
+        jLabel9.setBounds(500, 250, 150, 14);
+
+        jLabel10.setText("Permite empate?");
+        add(jLabel10);
+        jLabel10.setBounds(500, 310, 130, 14);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        add(jTextField1);
+        jTextField1.setBounds(670, 220, 40, 20);
+        add(jTextField4);
+        jTextField4.setBounds(670, 340, 40, 20);
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        add(jTextField2);
+        jTextField2.setBounds(670, 280, 40, 20);
+
+        jLabel11.setText("Cant. de sets/Tantos por no presentarse");
+        add(jLabel11);
+        jLabel11.setBounds(500, 220, 120, 14);
+
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        add(jTextField5);
+        jTextField5.setBounds(670, 250, 40, 20);
+
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_general.jpg"))); // NOI18N
         add(jLabel6);
         jLabel6.setBounds(0, 0, 800, 600);
@@ -241,10 +282,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private void DeporteAsociadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeporteAsociadoActionPerformed
 
     }//GEN-LAST:event_DeporteAsociadoActionPerformed
-
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void nombreCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreCompActionPerformed
         // TODO add your handling code here:
@@ -282,9 +319,28 @@ public class AltaCompetencia extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        if((String)jComboBox2.getSelectedItem()=="Liga"){modalidadLiga();}
+        else modalidadEliminatoria();
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        if((String)jComboBox1.getSelectedItem()=="Puntuacion"){formaPPuntuacion();}
+        else if((String)jComboBox1.getSelectedItem()=="Sets"){formaPSets();}
+        else formaPResultadoFinal();
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -294,23 +350,74 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private javax.swing.JTextField Reglamento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
     private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField nombreComp;
     // End of variables declaration//GEN-END:variables
+    
+    
+    //(Des)habilitacion de botones dependiendo de los comboBox
+    
+    private void modalidadLiga(){
+        
+        jTextField4.setVisible(true);
+        jTextField5.setVisible(true);
+        jTextField2.setVisible(true);
+        jCheckBox5.setVisible(true);
+        jLabel7.setVisible(true);
+        jLabel8.setVisible(true);
+        jLabel9.setVisible(true);
+        jLabel10.setVisible(true);
+    }
+    
+    private void modalidadEliminatoria(){
+        
+        jTextField4.setVisible(false);
+        jTextField5.setVisible(false);
+        jTextField2.setVisible(false);
+        jCheckBox5.setVisible(false);
+        jLabel7.setVisible(false);
+        jLabel8.setVisible(false);
+        jLabel9.setVisible(false);
+        jLabel10.setVisible(false);
+        
+        // modificar jlabel 11
+    }
+    
+    private void formaPPuntuacion(){
+        jLabel11.setVisible(true);
+        jTextField1.setVisible(true);
+        jLabel11.setText("Tantos por no presentarse");
+    }
+    private void formaPSets(){
+        jLabel11.setVisible(true);
+        jTextField1.setVisible(true);
+        jLabel11.setText("Cant. max. de sets");
+    }
+    private void formaPResultadoFinal(){
+        jLabel11.setVisible(false);
+        jTextField1.setVisible(false);
+    }
+    
+    
 }

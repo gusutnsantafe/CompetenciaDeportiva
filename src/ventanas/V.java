@@ -45,7 +45,7 @@ public class V extends javax.swing.JFrame {
     
     public void listarCD(){
         limpiar();
-        aux=new Auxiliar();
+        aux=new ListarCompetencias();
         add(aux);
         revalidate();
         repaint();
