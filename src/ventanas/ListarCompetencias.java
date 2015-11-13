@@ -170,6 +170,8 @@ public class ListarCompetencias extends javax.swing.JPanel {
                 "Nombre", "Deporte", "Modalidad", "Estado"
             }
         ));
+        jTable1.getTableHeader().setResizingAllowed(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         add(jScrollPane1);
