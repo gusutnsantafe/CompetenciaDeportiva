@@ -6,15 +6,15 @@ import java.util.*;
 public class Disponibilidad {
 
    private int id;
-   private String cantidad;
+   private int cantidad;
    private LugarRealizacion lg;
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;
+    public void setCantidad(int unaCantidad) {
+        this.cantidad = unaCantidad;
     }
 
     public void setLg(LugarRealizacion lg) {
@@ -25,7 +25,7 @@ public class Disponibilidad {
         return id;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
@@ -33,9 +33,9 @@ public class Disponibilidad {
         return lg;
     }
 
-    public Disponibilidad(int id, String cantidad, LugarRealizacion lg) {
+    public Disponibilidad(int id, int unaCantidad, LugarRealizacion lg) {
         this.id = id;
-        this.cantidad = cantidad;
+        this.cantidad = unaCantidad;
         this.lg = lg;
     }
 

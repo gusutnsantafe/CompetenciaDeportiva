@@ -1,6 +1,8 @@
 
 package modelo;
     
+import DAO.CompetenciaDaoJDBC;
+
 public class Estado {
         private int id;
         private String nombre;
@@ -18,7 +20,7 @@ public class Estado {
         this.nombre = nombre;
     }
 
-    public int getId() {
+    public int getID() {
         return id;
     }
 

@@ -5,6 +5,8 @@ import modelo.Participante;
 import DAO.participanteService;
 import DAO.participanteServiceImpl;
 
+import DAO.CompetenciaDaoJDBC;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
+
+import modelo.Deporte;
 
 
 public class zaraza extends javax.swing.JFrame {
@@ -96,14 +100,16 @@ public class zaraza extends javax.swing.JFrame {
         conexion();
         
         try{
-                  
-            System.out.println("blabla");
+              CompetenciaDaoJDBC comp = new CompetenciaDaoJDBC();
+            
+            comp.consultaD();
+            /*System.out.println("blabla");
             
             participanteService partSrv= new participanteServiceImpl();
             
             partSrv.listaParticipante();
             
-            System.out.println();
+            System.out.println();*/
                 
        }
        catch(Exception e){
@@ -150,4 +156,5 @@ public class zaraza extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CONECTAR;
     // End of variables declaration//GEN-END:variables
+
 }

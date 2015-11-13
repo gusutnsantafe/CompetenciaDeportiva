@@ -1,6 +1,5 @@
 
 package DAO;
-
  
 import modelo.Participante;
 import java.sql.Connection;
@@ -82,9 +81,7 @@ public class participanteDaoJDBC implements participanteDao {
         }
     }
     
-    
- 
-    
+
      @Override
     public void crear(Participante p) {
         Connection conn = null;

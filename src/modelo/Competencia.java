@@ -10,17 +10,19 @@ public class Competencia {
     private String reglamento;
    
     private int cantidadMaximaDeSets;
-    private String tantosPorAusenciaDeRival;
+    private int tantosPorAusenciaDeRival;
     private int puntosPorPresentacion;
     private int puntosPorVictoria;
-    private int empatePermitido;
-    private String puntosPorPermitido;
+    private boolean empatePermitido;
+    private int puntosPorPermitido;
     
     private Estado estado;
     private FormaPuntuacion formaPuntuacion;
     private Modalidad modalidad;
     private Fixture fixture;
     private Deporte deporte;
+    private Usuario usuario;
+    private ArrayList<Participante> listaParticipantes;
     private ArrayList<Disponibilidad> disponibilidad;
     private ArrayList<TablaPosicionesParticipante> tablaPosicionesParticipante;
 
@@ -40,7 +42,7 @@ public class Competencia {
         this.cantidadMaximaDeSets = cantidadMaximaDeSets;
     }
 
-    public void setTantosPorAusenciaDeRival(String tantosPorAusenciaDeRival) {
+    public void setTantosPorAusenciaDeRival(int tantosPorAusenciaDeRival) {
         this.tantosPorAusenciaDeRival = tantosPorAusenciaDeRival;
     }
 
@@ -52,11 +54,11 @@ public class Competencia {
         this.puntosPorVictoria = puntosPorVictoria;
     }
 
-    public void setEmpatePermitido(int empatePermitido) {
+    public void setEmpatePermitido(boolean empatePermitido) {
         this.empatePermitido = empatePermitido;
     }
 
-    public void setPuntosPorPermitido(String puntosPorPermitido) {
+    public void setPuntosPorPermitido(int puntosPorPermitido) {
         this.puntosPorPermitido = puntosPorPermitido;
     }
 
@@ -64,6 +66,11 @@ public class Competencia {
         this.estado = estado;
     }
 
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario; 
+    }
+    
+    
     public void setFormaPuntuacion(FormaPuntuacion formaPuntuacion) {
         this.formaPuntuacion = formaPuntuacion;
     }
@@ -104,7 +111,7 @@ public class Competencia {
         return cantidadMaximaDeSets;
     }
 
-    public String getTantosPorAusenciaDeRival() {
+    public int getTantosPorAusenciaDeRival() {
         return tantosPorAusenciaDeRival;
     }
 
@@ -116,11 +123,11 @@ public class Competencia {
         return puntosPorVictoria;
     }
 
-    public int getEmpatePermitido() {
+    public boolean getEmpatePermitido() {
         return empatePermitido;
     }
 
-    public String getPuntosPorPermitido() {
+    public int getPuntosPorPermitido() {
         return puntosPorPermitido;
     }
 
@@ -144,6 +151,11 @@ public class Competencia {
         return deporte;
     }
 
+    public Usuario getUsuario(){
+        return usuario; 
+    }
+    
+    
     public ArrayList<Disponibilidad> getDisponibilidad() {
         return disponibilidad;
     } 
@@ -151,7 +163,10 @@ public class Competencia {
     public ArrayList<TablaPosicionesParticipante> getTablaPosicionesParticipante() {
         return tablaPosicionesParticipante;
     }     
-    public Competencia(int id, String nombre, String reglamento, int cantidadMaximaDeSets, String tantosPorAusenciaDeRival, int puntosPorPresentacion, int puntosPorVictoria, int empatePermitido, String puntosPorPermitido, Estado estado, FormaPuntuacion formaPuntuacion, Modalidad modalidad, Fixture fixture, Deporte deporte) {
+    public Competencia(int id, String nombre, String reglamento, Deporte deporte, Modalidad modalidad, Estado estado,
+                       ArrayList<Disponibilidad> listaDisponibilidades, FormaPuntuacion formaPuntuacion, int cantidadMaximaDeSets,
+                       int tantosPorAusenciaDeRival, int puntosPorPresentacion, int puntosPorVictoria,
+                       boolean empatePermitido, int puntosPorPermitido) {
         this.id = id;
         this.nombre = nombre;
         this.reglamento = reglamento;
@@ -165,9 +180,9 @@ public class Competencia {
         this.estado = estado;
         this.formaPuntuacion = formaPuntuacion;
         this.modalidad = modalidad;
-        this.fixture = fixture;
         this.deporte = deporte;
-        this.disponibilidad = new ArrayList<>();
+        this.listaParticipantes = new ArrayList<>();
+        this.disponibilidad = listaDisponibilidades;
         this.tablaPosicionesParticipante = new ArrayList<>();
     }
     

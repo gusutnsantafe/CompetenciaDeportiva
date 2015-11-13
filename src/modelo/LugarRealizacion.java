@@ -23,8 +23,8 @@ public class LugarRealizacion {
         this.descripción = descripción;
     }
 
-    public void setDeporte(ArrayList<Deporte> deporte) {
-        this.deporte = deporte;
+    public void addDeporte(Deporte unDeporte) {
+        deporte.add(unDeporte);
     }
 
     public int getId() {
