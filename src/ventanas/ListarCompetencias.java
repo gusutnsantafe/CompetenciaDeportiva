@@ -5,6 +5,8 @@
  */
 package ventanas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Martin
@@ -69,16 +71,16 @@ public class ListarCompetencias extends javax.swing.JPanel {
         jLabel2.setText("Nombre de la Competencia");
 
         // HACER -> Buscar en la BD y que devuelva una lista
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Basket", "Futbol", "Voley" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Basket", "Futbol", "Voley" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Creada", "Planificada", "EnDisputa", "Finalizada" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "", "Creada", "Planificada", "EnDisputa", "Finalizada" }));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sistema de Liga", "Sistema de Eliminatoria Simple", "Sistema de Eliminatoria Doble" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { " ", "Liga", "Eliminatoria Simple", "Eliminatoria Doble" }));
 
         jLabel6.setText("Modalidad");
 
@@ -169,7 +171,16 @@ public class ListarCompetencias extends javax.swing.JPanel {
             new String [] {
                 "Nombre", "Deporte", "Modalidad", "Estado"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setFocusable(false);
         jTable1.getTableHeader().setResizingAllowed(false);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
@@ -184,7 +195,7 @@ public class ListarCompetencias extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(470, 510, 140, 23);
+        jButton3.setBounds(460, 510, 150, 23);
 
         jButton4.setText("Ver Competencia");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -205,7 +216,10 @@ public class ListarCompetencias extends javax.swing.JPanel {
     }//GEN-LAST:event_SALIRActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        if(jComboBox2.getSelectedIndex()==0 && jComboBox3.getSelectedIndex()==0 &&
+                jComboBox1.getSelectedIndex()==0 && jTextField1.getText().isEmpty()){
+            errorFiltros();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -220,6 +234,10 @@ public class ListarCompetencias extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void errorFiltros(){
+        JOptionPane.showMessageDialog(null, "Ingrese un filtro de busqueda", "", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SALIR;

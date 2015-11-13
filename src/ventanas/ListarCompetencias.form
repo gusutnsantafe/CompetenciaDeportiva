@@ -123,10 +123,11 @@
         <Component class="javax.swing.JComboBox" name="jComboBox2">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Basket"/>
-                <StringItem index="1" value="Futbol"/>
-                <StringItem index="2" value="Voley"/>
+              <StringArray count="4">
+                <StringItem index="0" value=""/>
+                <StringItem index="1" value="Basket"/>
+                <StringItem index="2" value="Futbol"/>
+                <StringItem index="3" value="Voley"/>
               </StringArray>
             </Property>
           </Properties>
@@ -140,11 +141,12 @@
         <Component class="javax.swing.JComboBox" name="jComboBox1">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Creada"/>
-                <StringItem index="1" value="Planificada"/>
-                <StringItem index="2" value="EnDisputa"/>
-                <StringItem index="3" value="Finalizada"/>
+              <StringArray count="5">
+                <StringItem index="0" value=""/>
+                <StringItem index="1" value="Creada"/>
+                <StringItem index="2" value="Planificada"/>
+                <StringItem index="3" value="EnDisputa"/>
+                <StringItem index="4" value="Finalizada"/>
               </StringArray>
             </Property>
           </Properties>
@@ -152,10 +154,11 @@
         <Component class="javax.swing.JComboBox" name="jComboBox3">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Sistema de Liga"/>
-                <StringItem index="1" value="Sistema de Eliminatoria Simple"/>
-                <StringItem index="2" value="Sistema de Eliminatoria Doble"/>
+              <StringArray count="4">
+                <StringItem index="0" value=" "/>
+                <StringItem index="1" value="Liga"/>
+                <StringItem index="2" value="Eliminatoria Simple"/>
+                <StringItem index="3" value="Eliminatoria Doble"/>
               </StringArray>
             </Property>
           </Properties>
@@ -195,12 +198,13 @@
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="29">
-                <Column editable="true" title="Nombre" type="java.lang.Object"/>
-                <Column editable="true" title="Deporte" type="java.lang.Object"/>
-                <Column editable="true" title="Modalidad" type="java.lang.Object"/>
-                <Column editable="true" title="Estado" type="java.lang.Object"/>
+                <Column editable="false" title="Nombre" type="java.lang.Object"/>
+                <Column editable="false" title="Deporte" type="java.lang.Object"/>
+                <Column editable="false" title="Modalidad" type="java.lang.Object"/>
+                <Column editable="false" title="Estado" type="java.lang.Object"/>
               </Table>
             </Property>
+            <Property name="focusable" type="boolean" value="false"/>
             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
               <TableHeader reorderingAllowed="false" resizingAllowed="false"/>
             </Property>
@@ -217,7 +221,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="470" y="510" width="140" height="-1"/>
+          <AbsoluteConstraints x="460" y="510" width="150" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

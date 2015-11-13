@@ -37,6 +37,7 @@ public class Menu extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
@@ -51,7 +52,7 @@ public class Menu extends javax.swing.JPanel {
 
         jButton2.setText("Dar de Baja Usuario");
         add(jButton2);
-        jButton2.setBounds(310, 318, 180, 23);
+        jButton2.setBounds(300, 318, 200, 23);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Sistema");
@@ -65,7 +66,7 @@ public class Menu extends javax.swing.JPanel {
             }
         });
         add(jButton3);
-        jButton3.setBounds(310, 395, 180, 23);
+        jButton3.setBounds(300, 395, 200, 23);
 
         jButton4.setText("Listar Competencia Deportivas");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +75,7 @@ public class Menu extends javax.swing.JPanel {
             }
         });
         add(jButton4);
-        jButton4.setBounds(310, 436, 180, 23);
+        jButton4.setBounds(300, 436, 200, 23);
 
         jButton5.setText("Modificar Datos de Usuario");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -83,23 +84,32 @@ public class Menu extends javax.swing.JPanel {
             }
         });
         add(jButton5);
-        jButton5.setBounds(310, 277, 180, 23);
+        jButton5.setBounds(300, 277, 200, 23);
 
         jLabel1.setText("*");
         add(jLabel1);
-        jLabel1.setBounds(494, 281, 15, 14);
+        jLabel1.setBounds(510, 284, 15, 10);
 
         jLabel5.setText("*");
         add(jLabel5);
-        jLabel5.setBounds(494, 322, 15, 14);
+        jLabel5.setBounds(510, 324, 15, 10);
 
         jLabel6.setText("*");
         add(jLabel6);
-        jLabel6.setBounds(494, 399, 15, 14);
+        jLabel6.setBounds(510, 404, 15, 10);
 
         jLabel7.setText("*: No implementado");
         add(jLabel7);
-        jLabel7.setBounds(540, 570, 95, 14);
+        jLabel7.setBounds(500, 570, 130, 14);
+
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1);
+        jButton1.setBounds(360, 490, 70, 30);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_desearealizar.jpg"))); // NOI18N
         add(jLabel9);
@@ -118,8 +128,13 @@ public class Menu extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        V.get().salir();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

@@ -12,7 +12,9 @@ import java.util.Vector;
  * @author Martin
  */
 public class AltaCompetencia extends javax.swing.JPanel {
-
+    
+    TablaDisponibilidad tablaDisp = new TablaDisponibilidad();
+    
     /**
      * Creates new form AltaCompetencia
      */
@@ -20,7 +22,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
         initComponents();
     }
     
-    private Vector< Vector<Object> > tabla;
+    //private Vector< Vector<Object> > tabla;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,6 +32,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
@@ -41,8 +44,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         ACEPTAR = new javax.swing.JButton();
         ATRAS = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -59,12 +60,21 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
-        jPanel1 = new TablaDisponibilidad();
         jLabel6 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
         setLayout(null);
+
+        tablaDisp=new TablaDisponibilidad();
+        jPanel1.add(tablaDisp);
+        jPanel1.setToolTipText("");
+        jPanel1.setMinimumSize(new java.awt.Dimension(100, 100));
+        jPanel1.setPreferredSize(new java.awt.Dimension(300, 260));
+        add(jPanel1);
+        jPanel1.setBounds(50, 230, 300, 260);
+        revalidate();
+        repaint();
 
         jLabel7.setText("Puntos por presentarse:");
         add(jLabel7);
@@ -159,29 +169,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
         });
         add(jComboBox3);
         jComboBox3.setBounds(90, 180, 102, 20);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Lugar", "Cant. ocupada", ""
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
-
-        add(jScrollPane1);
-        jScrollPane1.setBounds(50, 230, 289, 40);
 
         ACEPTAR.setText("DAR DE ALTA");
         ACEPTAR.addActionListener(new java.awt.event.ActionListener() {
@@ -281,8 +268,6 @@ public class AltaCompetencia extends javax.swing.JPanel {
         });
         add(jButton3);
         jButton3.setBounds(300, 180, 50, 23);
-        add(jPanel1);
-        jPanel1.setBounds(50, 230, 290, 240);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventanas/img_general.jpg"))); // NOI18N
         add(jLabel6);
@@ -394,9 +379,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
@@ -470,16 +453,14 @@ public class AltaCompetencia extends javax.swing.JPanel {
         }
     }
     
-    private Vector< Vector<Object> > tablaa(){
-        return tabla;
-    }
     
     private void agregarATabla(String lugar, int cantidad){
-        Vector<Object> auxLocal= new Vector<>();
+        tablaDisp.addFila(lugar, cantidad);
+        /*Vector<Object> auxLocal= new Vector<>();
         auxLocal.add(lugar);
         auxLocal.add(cantidad);
-        auxLocal.add("BOTON");
-        tabla.add(auxLocal);
+        auxLocal.add("BOTON");*/
+        //tabla.add(auxLocal);
     }
     
 }

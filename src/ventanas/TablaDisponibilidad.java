@@ -26,35 +26,47 @@ import javax.swing.table.TableModel;
 public class TablaDisponibilidad extends JPanel{
 
     public static void main(String[] args) {
+        //new TablaDisponibilidad();
         JFrame frame = new JFrame("Testing");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
-        frame.setMaximumSize(new java.awt.Dimension(400,400));
-        frame.setMinimumSize(new java.awt.Dimension(400,400));
-        frame.add(new TablaDisponibilidad());
+        //frame.setMaximumSize(new java.awt.Dimension(250,350));
+        frame.setMinimumSize(new java.awt.Dimension(250,350));
+        JPanel panel= new JPanel();
+        panel.add(new TablaDisponibilidad());
+        frame.add(panel);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
-
-    public TablaDisponibilidad() {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                DefaultTableModel model = new DefaultTableModel(){
+    
+    DefaultTableModel model = new DefaultTableModel(){
                     @Override
                     public boolean isCellEditable(int row, int column){
                         return false;
                     }
                 };
+    
+    
+    public TablaDisponibilidad() {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                
+                setMinimumSize(new java.awt.Dimension(2900,250));
+                setPreferredSize(new java.awt.Dimension(290,250));
+                
+                
                 
                 model.addColumn("Lugar");
                 model.addColumn("Cant. ocupada");
                 
+                
+                // ADDD ROOOWWWWWWW
                 for (int row = 0; row < 10; row++) {
                     Vector<String> rowData = new Vector<>(2);
                     for (int col = 0; col < 2; col++) {
-                        rowData.add(row + "x" + col);
+                        rowData.add(row + " " + col);
                     }
                     model.addRow(rowData);
                 }
@@ -62,10 +74,10 @@ public class TablaDisponibilidad extends JPanel{
                 JTable table = new JTable(model);
                 DeleteRowFromTableAction deleteAction = new DeleteRowFromTableAction(table, model);
                 
-                table.setMaximumSize(new java.awt.Dimension(200,200));
-                table.setPreferredSize(new java.awt.Dimension(200,200));
-                table.getColumnModel().getColumn(0).setPreferredWidth(100);
-                table.getColumnModel().getColumn(0).setMaxWidth(100);
+                //table.setMaximumSize(new java.awt.Dimension(200,200));
+                table.setPreferredSize(new java.awt.Dimension(280,260));
+                table.getColumnModel().getColumn(0).setPreferredWidth(180);
+                table.getColumnModel().getColumn(0).setMaxWidth(180);
                 table.getColumnModel().getColumn(1).setPreferredWidth(100);
                 table.getColumnModel().getColumn(1).setMaxWidth(100);
                 /*table.getTableHeader().setResizingAllowed(false);
@@ -75,28 +87,29 @@ public class TablaDisponibilidad extends JPanel{
                 JToolBar tb = new JToolBar();
                 tb.add(deleteAction);
                 tb.setFloatable(false);
-                tb.setMaximumSize(new java.awt.Dimension(200,200));
+                //tb.setMaximumSize(new java.awt.Dimension(200,200));
 
                 InputMap im = table.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
                 ActionMap am = table.getActionMap();
                 im.put(KeyStroke.getKeyStroke(KeyEvent.VK_DELETE, 0), "deleteRow");
                 am.put("deleteRow", deleteAction);
                 
-/*
-                JFrame frame = new JFrame("Testing");
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setLayout(new BorderLayout());
-                frame.add(tb, BorderLayout.NORTH);
-                frame.add(new JScrollPane(table));
-                frame.pack();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);*/
                 
+                setLayout(new BorderLayout());
+                add(tb, BorderLayout.NORTH);
+                add(new JScrollPane(table));
+                setPreferredSize(new java.awt.Dimension(290,260));
+                setMinimumSize(new java.awt.Dimension(290,260));
+                setVisible(true);
+                
+                
+                
+                /*
                 add(tb, BorderLayout.NORTH);
                 add(new JScrollPane(table));
                 setMinimumSize(new java.awt.Dimension(290,260));
                 setPreferredSize(new java.awt.Dimension(290,260));
-                setVisible(true);
+                setVisible(true);*/
             }
         });
     }
@@ -138,7 +151,6 @@ public class TablaDisponibilidad extends JPanel{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println("...");
             JTable table = getTable();
             if (table.getSelectedRowCount() > 0) {
                 List<Vector> selectedRows = new ArrayList<>(25);
@@ -159,4 +171,10 @@ public class TablaDisponibilidad extends JPanel{
 
     }
 
+    public void addFila(String lugar, int cantidad){
+        Vector<String> fila = new Vector<>(2);
+        fila.add(lugar);
+        fila.add(String.valueOf(cantidad));
+        model.addRow(fila);
+    }
 }
