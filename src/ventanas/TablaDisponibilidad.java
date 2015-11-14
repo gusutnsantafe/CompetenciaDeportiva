@@ -45,7 +45,9 @@ public class TablaDisponibilidad extends JPanel{
                     public boolean isCellEditable(int row, int column){
                         return false;
                     }
-                };
+    };
+    
+    JTable table;
     
     
     public TablaDisponibilidad() {
@@ -62,16 +64,16 @@ public class TablaDisponibilidad extends JPanel{
                 model.addColumn("Cant. ocupada");
                 
                 
-                // ADDD ROOOWWWWWWW
-                for (int row = 0; row < 10; row++) {
+                // ADDD ROOOWWWWWWW*/
+                /*for (int row = 0; row < 10; row++) {
                     Vector<String> rowData = new Vector<>(2);
                     for (int col = 0; col < 2; col++) {
                         rowData.add(row + " " + col);
                     }
                     model.addRow(rowData);
-                }
+                }*/
                 
-                JTable table = new JTable(model);
+                table = new JTable(model);
                 DeleteRowFromTableAction deleteAction = new DeleteRowFromTableAction(table, model);
                 
                 //table.setMaximumSize(new java.awt.Dimension(200,200));
@@ -176,5 +178,6 @@ public class TablaDisponibilidad extends JPanel{
         fila.add(lugar);
         fila.add(String.valueOf(cantidad));
         model.addRow(fila);
+        table.revalidate();
     }
 }

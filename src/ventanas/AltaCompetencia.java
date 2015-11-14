@@ -261,6 +261,7 @@ public class AltaCompetencia extends javax.swing.JPanel {
         jScrollPane2.setBounds(370, 380, 340, 96);
 
         jButton3.setText("+");
+        jButton3.setToolTipText("Agregar disponibilidad");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -349,9 +350,15 @@ public class AltaCompetencia extends javax.swing.JPanel {
     }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        int a= Integer.parseInt(jFormattedTextField1.getText());
-        if(a>0){
-            agregarATabla((String)jComboBox3.getSelectedItem(),a);
+        
+        if (jFormattedTextField1.getText().isEmpty()){
+            
+        }
+        else{
+            int a= Integer.parseInt(jFormattedTextField1.getText());
+            if(a>0){
+                agregarATabla((String)jComboBox3.getSelectedItem(),a);
+            }
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
